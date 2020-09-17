@@ -123,6 +123,35 @@ print(s.intToRoman(1994))       # MCMXCIV
 
 
 
+a = {
+    1: "a",
+    2: "b",
+    100: "c"
+}
+print(a)
+
+for key in a:
+    print(key)      # 1
+                    # 2
+                    # 100
+
+
+
+for k, v in a.items():
+    print(k, v)     # (1, 'a')
+                    # (2, 'b')
+                    # (100, 'c')
+
+
+print(sorted(a.items()))    # [(1, 'a'), (2, 'b'), (100, 'c')]
+
+
+
+
+
+
+
+
 # class Solution2:
 #     def intToRoman(self, num):
     
@@ -149,6 +178,4 @@ print(s.intToRoman(1994))       # MCMXCIV
 # print(p.intToRoman(9))
 # print(p.intToRoman(58))
 # print(p.intToRoman(1994))
-
-
 
