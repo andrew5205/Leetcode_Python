@@ -84,7 +84,8 @@ print(q.intToRoman(1994))       # MCMXCIV
 # bad approach since order of dict is not guaranted
 # sorted() solve the issue
 
-# need to continue on sorted()
+# sorted()   1 -> 2 -> 3 -> 
+# sorted()[::-1]   3 -> 2 -> 1 
 
 class SolutionSet:
     def intToRoman(self, num):
@@ -178,4 +179,6 @@ print(sorted(a.items()))    # [(1, 'a'), (2, 'b'), (100, 'c')]
 # print(p.intToRoman(9))
 # print(p.intToRoman(58))
 # print(p.intToRoman(1994))
+
+
 
