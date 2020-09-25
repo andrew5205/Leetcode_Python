@@ -54,6 +54,8 @@ print(p.longestCommonPrefix(["dog","racecar","car"]))           #
 # ('o', 'o', 'i')
 # ('w', 'w', 'g')
 
+# set() method is used to convert any of the iterable to sequence of iterable elements 
+# with dintinct elements, commonly called Set.
 
 # set(i)
 
