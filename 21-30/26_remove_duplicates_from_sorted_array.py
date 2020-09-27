@@ -32,3 +32,23 @@ class Solution:
 p = Solution()
 print(p.removeDuplicates([1,1,2]))
 print(p.removeDuplicates([0,0,1,1,1,2,2,3,3,4]))
+
+
+
+
+
+class Solution2:
+    def removeDuplicates(self, nums):
+        if not nums: return 0
+        
+        i = 0
+        for j in range(1, len(nums)):
+            if nums[i] != nums[j]:
+                nums[i+1] = nums[j]
+                i += 1
+        # i start with 0
+        return i+1
+
+q = Solution2()
+print(q.removeDuplicates([1,1,2]))
+print(q.removeDuplicates([0,0,1,1,1,2,2,3,3,4]))
