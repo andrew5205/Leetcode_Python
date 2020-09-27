@@ -52,3 +52,24 @@ class Solution2:
 q = Solution2()
 print(q.removeDuplicates([1,1,2]))
 print(q.removeDuplicates([0,0,1,1,1,2,2,3,3,4]))
+
+
+
+
+class Solution3:
+    def removeDuplicates(self, nums):
+        # init count from 0
+        i = 0
+        while(i < len(nums)):
+            # if element exist, remove it 
+            if (nums.count(nums[i]) > 1):
+                nums.remove(nums[i])
+            # if element not exist before, keep it and add 1 to count
+            else:
+                i += 1
+        return i
+        
+r = Solution3()
+print(r.removeDuplicates([1,1,2]))
+print(r.removeDuplicates([0,0,1,1,1,2,2,3,3,4]))
+
