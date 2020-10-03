@@ -30,3 +30,22 @@ p = Solution()
 print(p.containsDuplicate([1,2,3,1]))                   # True
 print(p.containsDuplicate([1,2,3,4]))                   # False
 print(p.containsDuplicate([1,1,1,3,3,4,3,2,4,2]))       # True
+
+
+
+# Time: O(n)
+# Space: O(n)
+class Solution1:
+    def containsDuplicate(self, nums):
+        dict = {}
+        for num in nums:
+            if num not in dict:
+                dict[num] = 1
+            else:
+                return True
+        return False
+
+q = Solution1()
+print(q.containsDuplicate([1,2,3,1]))                   # True
+print(q.containsDuplicate([1,2,3,4]))                   # False
+print(q.containsDuplicate([1,1,1,3,3,4,3,2,4,2]))       # True
