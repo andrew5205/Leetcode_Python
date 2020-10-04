@@ -74,3 +74,20 @@ s = Solution2()
 print(s.containsDuplicate([1,2,3,1]))                   # True
 print(s.containsDuplicate([1,2,3,4]))                   # False
 print(s.containsDuplicate([1,1,1,3,3,4,3,2,4,2]))       # True
+
+
+
+# sort list 
+# [i] == [i+1]
+class Solution3:
+    def containsDuplicate(self, nums):
+        sortList = sorted(nums)
+        for i in range(len(sortList)-1):
+            if sortList[i] == sortList[i+1]:
+                return True
+        return False
+
+t = Solution3()
+print(t.containsDuplicate([1,2,3,1]))                   # True
+print(t.containsDuplicate([1,2,3,4]))                   # False
+print(t.containsDuplicate([1,1,1,3,3,4,3,2,4,2]))       # True
