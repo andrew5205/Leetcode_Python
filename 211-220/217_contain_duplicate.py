@@ -49,3 +49,28 @@ q = Solution1()
 print(q.containsDuplicate([1,2,3,1]))                   # True
 print(q.containsDuplicate([1,2,3,4]))                   # False
 print(q.containsDuplicate([1,1,1,3,3,4,3,2,4,2]))       # True
+
+
+
+
+# Time: O(n)
+# Space: O(n)
+
+# should avoid enumerate() in this case 
+# since i, j is for key, value pair
+# use j(value) as key in dict and assign value
+# works but bad approach
+class Solution2:
+    def containsDuplicate(self, nums):
+        dict = {}
+        for i, j in enumerate(nums):
+            if j in dict:
+                return True
+            else:
+                dict[j] = 1
+        return False
+
+s = Solution2()
+print(s.containsDuplicate([1,2,3,1]))                   # True
+print(s.containsDuplicate([1,2,3,4]))                   # False
+print(s.containsDuplicate([1,1,1,3,3,4,3,2,4,2]))       # True
