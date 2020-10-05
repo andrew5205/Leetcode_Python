@@ -41,6 +41,23 @@ print(p.containsNearbyDuplicate([1,2,3,1,2,3], 2))
 
 
 
+class SolutionEn():
+    def containsNearbyDuplicate(self, nums, k):
+        dict = {}
+        for i, v in enumerate(nums):
+            if v in dict and i - dict[v] <= k:
+                return True
+            dict[v] = i
+        return False
+    
+r = SolutionEn()
+print(r.containsNearbyDuplicate([1,2,3,1], 3))
+print(r.containsNearbyDuplicate([1,0,1,1], 1))
+print(r.containsNearbyDuplicate([1,2,3,1,2,3], 2))
+
+
+
+
 # O(n^2)
 # intiate approach 
 class Solution1():
