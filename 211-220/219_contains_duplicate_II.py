@@ -17,8 +17,8 @@
 # Output: false
 
 
-
-class Solution(object):
+# O(n)
+class Solution():
     def containsNearbyDuplicate(self, nums, k):
         """
         :type nums: List[int]
@@ -37,3 +37,26 @@ p = Solution()
 print(p.containsNearbyDuplicate([1,2,3,1], 3))
 print(p.containsNearbyDuplicate([1,0,1,1], 1))
 print(p.containsNearbyDuplicate([1,2,3,1,2,3], 2))
+
+
+
+
+# O(n^2)
+# intiate approach 
+class Solution1():
+    def containsNearbyDuplicate(self, nums, k):
+        if len(nums) == len(set(nums)):
+            return False
+        
+        for i in range(len(nums)):
+            for j in range(i+1, len(nums)):
+                if nums[i] == nums[j]:
+                    if j - i <= k:
+                        return True
+        return False
+
+
+q = Solution1()
+print(q.containsNearbyDuplicate([1,2,3,1], 3))
+print(q.containsNearbyDuplicate([1,0,1,1], 1))
+print(q.containsNearbyDuplicate([1,2,3,1,2,3], 2))
