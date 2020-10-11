@@ -55,3 +55,10 @@ print(q.isHappy(19))
 # print(q.isHappy(11))      False 
 
 
+
+
+# while n:
+#     sums += (n % 10) ** 2
+#     # // floor 
+#     n //= 10
+# return sums
