@@ -38,3 +38,20 @@ class Solution():
 p = Solution()
 print(p.isHappy(19))
 
+
+
+class Solution1():
+    def isHappy(self, n):
+        s = set()
+        while n != 1:
+            if n in s:
+                return False
+            s.add(n)
+            n = sum(int(i) ** 2 for i in str(n))
+        return True
+    
+q = Solution1()
+print(q.isHappy(19))
+# print(q.isHappy(11))      False 
+
+
