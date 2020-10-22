@@ -55,4 +55,20 @@ print(q.isAnagram("anagrm", "nagaram"))         # False
 
 
 
+class SolutionSet():
+    def isAnagram(self, s, t):
+        for c in set(s) | set(t):
+            if s.count(c) != t.count(c):
+                return False
+        return True
+r = SolutionSet()
+print(r.isAnagram("anagram", "nagaram"))        # True
+print(r.isAnagram("anagrm", "nagaram"))         # False
+
+# count(val)
+# return numbers of value appears in the list
+# list = [1,2,3,4,5,6,7,8,9,3,3]
+# a = list.count(3)
+# print(a)            # 3
+
 
