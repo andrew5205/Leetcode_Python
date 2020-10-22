@@ -24,3 +24,35 @@ class Solution():
 p = Solution()
 print(p.isAnagram("anagram", "nagaram"))
 
+
+
+class SolutionHash():
+    def isAnagram(self, s, t):
+        dict = {}
+        
+        if len(s) != len(t):
+            return False
+        
+        for i in s:
+            if i in dict:
+                dict[i] += 1
+            else:
+                dict[i] = 1
+            
+        for i in t:
+            if i in dict:
+                dict[i] -= 1
+            else:
+                return False
+        
+        for val in dict.values():
+            if val != 0:
+                return False
+        return True
+q = SolutionHash()
+print(q.isAnagram("anagram", "nagaram"))        # True
+print(q.isAnagram("anagrm", "nagaram"))         # False
+
+
+
+
