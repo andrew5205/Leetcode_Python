@@ -72,3 +72,20 @@ print(r.isAnagram("anagrm", "nagaram"))         # False
 # print(a)            # 3
 
 
+
+# import string library 
+import string
+class SolutionStringLib():
+    def isAnagram(self, s, t):
+        # string.ascii_lowercase gives lowercase letters 
+        # abcdefghijklmnopqrstuvwxyz
+        for i in string.ascii_lowercase:
+            if s.count(i) != t.count(i):
+                return False
+            return True
+w = SolutionStringLib()
+print(w.isAnagram("anagram", "nagaram"))        # True
+print(w.isAnagram("anagrm", "nagaram"))         # False
+
+
+
