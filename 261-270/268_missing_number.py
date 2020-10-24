@@ -89,3 +89,18 @@ print(b.missingNumber([0]))
 # 0	1	1
 # 1	0	1
 # 1	1	0
+
+
+
+
+class SolutionSort():
+    def missingNumber(self, nums):
+        theList = sorted(nums)
+        for i in range(len(theList)+1):
+            if i not in theList:
+                return i
+s = SolutionSort()
+print(s.missingNumber([3,0,1]))
+print(s.missingNumber([0,1]))
+print(s.missingNumber([9,6,4,2,3,5,7,0,1]))
+print(s.missingNumber([0]))
