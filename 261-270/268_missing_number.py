@@ -51,3 +51,41 @@ print(p.missingNumber([3,0,1]))
 print(p.missingNumber([0,1]))
 print(p.missingNumber([9,6,4,2,3,5,7,0,1]))
 print(p.missingNumber([0]))
+
+
+
+class SolutionBit():
+    def missingNumber(self, nums):
+        # init start comparable as 0
+        res = 0
+        # will be n+1 numbers 
+        n = len(nums)
+        
+        # check for all number all in the list 
+        for i in range(n+1):
+            # two same number will get 0 by XOR 
+            # A or B but not both 
+            res = res ^ i
+        
+        # find out missing number
+        for num in nums:
+            res = res ^ num
+        return res
+    
+    
+b = Solution()
+print(b.missingNumber([3,0,1]))
+print(b.missingNumber([0,1]))
+print(b.missingNumber([9,6,4,2,3,5,7,0,1]))
+print(b.missingNumber([0]))
+
+
+# A OR B but NOT BOTH gives Q
+# XOR table 
+
+# B	A	Q
+# ----------
+# 0	0	0
+# 0	1	1
+# 1	0	1
+# 1	1	0
