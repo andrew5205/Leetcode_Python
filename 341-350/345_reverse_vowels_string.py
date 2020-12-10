@@ -32,6 +32,7 @@ class Solution():
         vowel_dict = {"a", "e", "i", "o", "u", "A", "E", "I", "O", "U"}
         index_list = []
         char_list = []
+        # print(type(vowel_dict))     # <class 'set'>
 
         for i, char in enumerate(s_list):
             if char in vowel_dict:
@@ -45,11 +46,11 @@ class Solution():
 p = Solution()
 print(p.reverseVowels("hello"))
 print(p.reverseVowels("leetcode"))
+# print(type(vowel_dict))
 
 
-
-
-
-
-
+# class Solution:
+#     def reverseVowels(self, s: str) -> str:
+#         vowels = re.findall('(?i)[aeiou]', s)
+#         return re.sub('(?i)[aeiou]', lambda x:vowels.pop(), s)
 
