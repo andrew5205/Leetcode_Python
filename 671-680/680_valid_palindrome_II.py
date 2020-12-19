@@ -35,15 +35,56 @@ class Solution(object):
         return True
 p = Solution()
 print(p.validPalindrome("aba"))         # True
+print(p.validPalindrome("abc"))         # False
 print(p.validPalindrome("abca"))        # True
 print(p.validPalindrome("abcda"))       # False
 
 
 
+class Solution(object):
+    def validPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        if s == s[::-1]:
+            return True 
+        else:
+            i, j = 0, len(s) - 1
+            while s[i] == s[j]:
+                i += 1
+                j -= 1
+            # compare with one char from head or one char from tail 
+            return s[i+1:j+1] == s[i+1:j+1][::-1] or s[i:j] == s[i:j][::-1]
+q = Solution()
+print(q.validPalindrome("aba"))         # True
+print(q.validPalindrome("abc"))         # False
+print(q.validPalindrome("abca"))        # True
+print(q.validPalindrome("abcda"))       # False
 
 
 
 
+# # need to improve on this *** correction above ***
+# class Solution(object):
+#     def validPalindrome(self, s):
+#         """
+#         :type s: str
+#         :rtype: bool
+#         """
+#         L = len(s)
+#         for i in range(L//2):
+#             # if head and tail not match 
+#             if s[i] != s[-i-1]:
+#                 # ignore and chop head/ tail char then compare
+#                 return s[i+1:L-1] == s[i+1:L-1][::-1] or s[i:L-i-1] == s[i:L-i-1][::-1]
+#         return True
+
+# q = Solution()
+# print(q.validPalindrome("aba"))         # True
+# print(q.validPalindrome("abc"))         # True  <= this is the problem 
+# print(q.validPalindrome("abca"))        # True
+# print(q.validPalindrome("abcda"))       # False
 
 
 
