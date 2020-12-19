@@ -54,7 +54,7 @@ class Solution(object):
             while s[i] == s[j]:
                 i += 1
                 j -= 1
-            # compare with one char from head or one char from tail 
+            # compare without one char from head or one char from tail 
             return s[i+1:j+1] == s[i+1:j+1][::-1] or s[i:j] == s[i:j][::-1]
 q = Solution()
 print(q.validPalindrome("aba"))         # True
