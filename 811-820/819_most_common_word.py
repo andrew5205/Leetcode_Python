@@ -59,7 +59,7 @@ paragraph = "Bob hit a ball, the hit BALL flew far after it was hit."
 banned = ["hit"]
 
 p = Solution()
-print(p.mostCommonWord(paragraph, banned ))
+print(p.mostCommonWord(paragraph, banned))
 
 
 
@@ -68,8 +68,35 @@ print(p.mostCommonWord(paragraph, banned ))
 
 
 
+from collections import Counter
+import re
 
+class Solution(object):
+    def mostCommonWord(self, paragraph, banned):
+        """
+        :type paragraph: str
+        :type banned: List[str]
+        :rtype: str
+        """
+        # find all alp with words only, make a list 
+        a = re.findall(r'\w+', paragraph.lower())
+        banned = set(banned)
+        # setup Counter object
+        word_count = Counter()
 
+        for word in a:
+            if word not in banned:
+                word_count[word] += 1
+        # print(word_count.most_common())         # [('ball', 2), ('bob', 1), ('a', 1), ('the', 1), ('flew', 1), ('far', 1), ('after', 1), ('it', 1), ('was', 1)]
+        return word_count.most_common(1)[0][0]
 
+q = Solution()
+print(q.mostCommonWord(paragraph, banned))
 
+# collections.most_common()
+# most_common([n])
+# Return a list of the n most common elements 
+# and their counts from the most common to the least. 
 
+# If n is omitted or None, most_common() returns all elements in the counter. 
+# Elements with equal counts are ordered in the order first encountered:
