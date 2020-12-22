@@ -69,5 +69,53 @@ print(p.buddyStrings("", "aa"))                         # False
 
 
 
+class Solution(object):
+    def buddyStrings(self, A, B):
+        """
+        :type A: str
+        :type B: str
+        :rtype: bool
+        """
+        if len(A) != len(B):
+            return False 
+        else:
+            pairs = []
+            for a, b in zip(A, B):
+                if a != b:
+                    pairs.append((a, b))
+                if len(pairs) > 2:
+                    return False 
+            return len(pairs) == 2 and pairs[0] == pairs[1][::-1]
+q = Solution()
+print(q.buddyStrings("ab", "ba"))                       # True
+print(q.buddyStrings("ab", "ab"))                       # False
+print(q.buddyStrings("aa", "aa"))                       # True
+print(q.buddyStrings("aaaaaaabc", "aaaaaaacb"))         # True
+print(q.buddyStrings("", "aa"))                         # False
 
+
+
+
+
+
+from itertools import zip_longest
+class Solution(object):
+    def buddyStrings(self, A, B):
+        """
+        :type A: str
+        :type B: str
+        :rtype: bool
+        """
+        if A == B: 
+            return len(A) > len(set(A))
+        
+        stack = [(a, b) for a, b in zip_longest(A, B) if a != b]
+        return len(stack) == 2 and stack[0] == stack[-1][::-1]
+
+r = Solution()
+print(r.buddyStrings("ab", "ba"))                       # True
+print(r.buddyStrings("ab", "ab"))                       # False
+print(r.buddyStrings("aa", "aa"))                       # True
+print(r.buddyStrings("aaaaaaabc", "aaaaaaacb"))         # True
+print(r.buddyStrings("", "aa"))                         # False
 
