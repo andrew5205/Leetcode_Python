@@ -80,3 +80,33 @@ print(v)            # ['a', 'e', 'i', 'o', 'u']
 
 
 
+class Solution(object):
+    def reverseOnlyLetters(self, s):
+        """
+        :type S: str
+        :rtype: str
+        """
+        i, j = 0, len(s) - 1
+        # convert string to list firsr, can not modify string directly
+        char_list = [e for e in s]
+        while i < j:
+            if s[i].isalpha() and s[j].isalpha():
+                char_list[i], char_list[j] = char_list[j], char_list[i]
+                i += 1
+                j -= 1
+            else:
+                if not s[i].isalpha():
+                    i += 1
+                if not s[j].isalpha():
+                    j -= 1
+        return "".join(char_list)
+r = Solution()
+print(r.reverseOnlyLetters("ab-cd"))
+print(r.reverseOnlyLetters("a-bC-dEf-ghIj"))
+print(r.reverseOnlyLetters("Test1ng-Leet=code-Q!"))
+
+
+
+
+
+
