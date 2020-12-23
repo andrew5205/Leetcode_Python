@@ -107,6 +107,31 @@ print(r.reverseOnlyLetters("Test1ng-Leet=code-Q!"))
 
 
 
+class Solution(object):
+    def reverseOnlyLetters(self, s):
+        """
+        :type S: str
+        :rtype: str
+        """
+        i, j = 0, len(s) - 1
+        l = list(s)
+        while i < j:
+            if l[i].isalpha() and l[j].isalpha():
+                l[i], l[j] = l[j], l[i]
+                i, j = i + 1, j - 1
+                continue
+            if not l[i].isalpha():
+                i += 1
+            if not l[j].isalpha():
+                j -= 1
+        return "".join(l)
+t = Solution()
+print(t.reverseOnlyLetters("ab-cd"))
+print(t.reverseOnlyLetters("a-bC-dEf-ghIj"))
+print(t.reverseOnlyLetters("Test1ng-Leet=code-Q!"))
+
+
+
 
 
 class Solution(object):
@@ -130,3 +155,7 @@ o = Solution()
 print(o.reverseOnlyLetters("ab-cd"))
 print(o.reverseOnlyLetters("a-bC-dEf-ghIj"))
 print(o.reverseOnlyLetters("Test1ng-Leet=code-Q!"))
+
+
+
+
