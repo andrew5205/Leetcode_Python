@@ -58,13 +58,9 @@ print(p.gcdOfStrings("ABCDEF", "ABC"))
 
 
 
+
+
 # GCD
-def computeGCD_euclidean(x, y):
-    while(y):
-        x, y = y, x % y
-    return x
-
-
 def computeGCD(x, y):
     if x > y:
         small = y
@@ -74,6 +70,60 @@ def computeGCD(x, y):
     for i in range(1, small + 1):
         gcd = i
     return gcd
+
+
+
+def computeGCD_euclidean(x, y):
+    while(y):
+        x, y = y, x % y
+    return x
+
+
+
+import math
+class Solution(object):
+    def gcdOfStrings(self, str1, str2):
+        """
+        :type str1: str
+        :type str2: str
+        :rtype: str
+        """
+        s1, s2 = str1, str2
+        return s1[:math.gcd(len(s1), len(s2))] if s1 + s2 == s2 + s1 else ""
+        # while s2:
+        #     s1, s2 = s2, s1[:len(s1) % len(s2)]
+        # if s1 * (len(str1)//len(s1)) == str1 and s2 * (len(str2)//len(s1)) == str2:
+        #     return s1
+        # return ""
+g = Solution()
+print(g.gcdOfStrings("ABCABC", "ABC"))
+print(g.gcdOfStrings("ABABAB", "ABAB"))
+print(g.gcdOfStrings("LEET", "CODE"))
+print(g.gcdOfStrings("ABCDEF", "ABC"))
+
+
+
+
+
+
+
+# # incomplete
+# class Solution(object):
+#     def gcdOfStrings(self, str1, str2):
+#         """
+#         :type str1: str
+#         :type str2: str
+#         :rtype: str
+#         """
+#         while str1 != str2:
+#             if len(str1) > len(str2):
+#                 str1, str2 = str2, str1
+#             find = str2.find(str1)
+#             if find == -1:
+#                 return ""
+#             else:
+#                 str2 = str2[:find] + str2[find + len(str1):]
+#         return str2
 
 
 
