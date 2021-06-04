@@ -26,7 +26,8 @@
 
 class Solution:
     def removeDuplicates(self, nums):
-        nums = sorted(set(nums))
+        # nums = sorted(set(nums))
+        nums = set(nums)
         return len(nums)
     
 p = Solution()
@@ -72,4 +73,23 @@ class Solution3:
 r = Solution3()
 print(r.removeDuplicates([1,1,2]))
 print(r.removeDuplicates([0,0,1,1,1,2,2,3,3,4]))
+
+
+
+
+# O(n)
+class Solution4:
+    def removeDuplicates(self, nums):
+        dict = {}
+        for i in nums:
+            if i not in dict:
+                dict[i] = 1
+        list = []
+        for i in dict:
+            list.append(i)
+        return len(list)
+    
+s = Solution4()
+print(s.removeDuplicates([1,1,2]))
+print(s.removeDuplicates([0,0,1,1,1,2,2,3,3,4]))
 
