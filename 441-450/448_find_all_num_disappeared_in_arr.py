@@ -69,3 +69,41 @@ print(o.findDisappearedNumbers([1,1]))
 
 
 
+
+
+""" without extra space """
+class Solution(object):
+    def findDisappearedNumbers(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        for e in nums:
+            v = abs(e)
+            if nums[v-1] > 0:
+                nums[v-1] *= -1
+        return [i+1 for i in range(len(nums)) if nums[i] > 0]
+        # return [i+1 for i, x in enumerate(nums) if x > 0]
+
+n = Solution()
+print(n.findDisappearedNumbers([4,3,2,7,8,2,3,1]))
+print(n.findDisappearedNumbers([1,1]))
+
+
+# concept:
+# within the same list/ arr, iterate throuh. 
+# the list/ arr is fixed length, so after loop is done, each val should been seen at least once (turn to negative number)
+# if not, that's what we wanna return (the positive)
+
+# thak each element value, use value-1 as index to iterate. -1 due to index starting with 0  
+
+# while each iterate, change the value * -1
+# return the postive val 
+
+
+# index:
+# [0,1,2,3,4,5]
+# val:
+# [1,2,3,4,5,6]
+
+# return the val by getting index from array => i+1
